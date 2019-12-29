@@ -8,7 +8,8 @@ import org.apache.spark.SparkContext._
 class Utils extends Serializable {
     val PATTERN = """^(\S+) (\S+) (\S+) \[([\w:/]+\s[+\-]\d{4})\] "(\S+) (\S+)(.*)" (\d{3}) (\S+)""".r
 
-    def containsIP(line:String):Boolean = return line matches "^([0-9\\.]+) .*$"
+    //def containsIP(line:String):Boolean = return line matches "^([0-9\\.]+) .*$"
+    def containsIP(line:String):Boolean = return line matches "^(1[0-2][0-6]|\\d\\d|\\d)\\.(\\d\\d\\d|\\d\\d|\\d)\\.(\\d\\d\\d|\\d\\d|\\d)\\.(\\d\\d\\d|\\d\\d|\\d) .*$"
     //Extract only IP
     def extractIP(line:String):(String) = {
         val pattern = "^([0-9\\.]+) .*$".r
